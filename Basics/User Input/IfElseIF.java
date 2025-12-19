@@ -5,6 +5,7 @@ class IfElseIF{
         System.out.println("Enter the Number: ");
         int n = sc.nextInt();
         studentGrade(n);
+        sc.close();
     }
     public static void studentGrade(int n){
         if(n>=90){
