@@ -1,8 +1,8 @@
 public class sum_of_gp {
     public static void main(String[] args){
-        int n =3;
-        double r =0.5;
-        int a =1;
+        int n =15;
+        double r =2;
+        int a =2;
         double sum=1;
         for(int i=1;i<n;i++){
             sum+=a*Math.pow(r,i);
