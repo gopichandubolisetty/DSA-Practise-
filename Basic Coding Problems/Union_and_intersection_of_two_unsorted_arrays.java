@@ -4,7 +4,9 @@ public class Union_and_intersection_of_two_unsorted_arrays {
         int[] a2 = {1,2,3,4,5,6};
         int len = a1.length+a2.length;
         int[] re = new int[len];
+        int[] inter = new int[len];
         int k=0;
+        int n=0;
         for(int i=0;i<a1.length;i++){
             if(k<len){
                 boolean bo = false;
@@ -38,7 +40,30 @@ public class Union_and_intersection_of_two_unsorted_arrays {
         }
 
         for(int i=0;i<k;i++){
-            System.out.println(re[i]);
+            System.out.print(re[i]);
         }
+
+        System.out.println();
+
+        for(int i=0;i<a1.length;i++){
+            if(n<len){
+                boolean bo = false;
+                for(int j=0;j<a2.length;j++){
+                    if(a1[i] == a2[j]){
+                        bo = true;
+                    }
+                   
+                } if(bo){
+                        inter[n] = a1[i];
+                        n++;
+                    }
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            System.out.print(inter[i]);
+        }
+
+
     }
 }
