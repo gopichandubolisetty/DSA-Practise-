@@ -18,10 +18,13 @@ class selectionSort{
                    ind =j;
                 }
             }
-            int temp = arr[i];
-            arr[i]=arr[ind];
-            arr[ind]=temp;
+            if(ind!=i){
+                int temp = arr[i];
+                arr[i]=arr[ind];
+                arr[ind]=temp;
+            }
         }
+            
 
         for(int i=0;i<n;i++){
             System.out.print(arr[i]+" ");
