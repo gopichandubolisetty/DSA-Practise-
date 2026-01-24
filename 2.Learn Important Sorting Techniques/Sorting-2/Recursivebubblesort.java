@@ -17,7 +17,6 @@ public class RecursiveBubbleSort {
             }
         }
 
-
         recur(arr, n - 1);
     }
 
