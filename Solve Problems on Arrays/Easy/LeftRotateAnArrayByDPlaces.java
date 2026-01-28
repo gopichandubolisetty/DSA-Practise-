@@ -16,6 +16,24 @@ public class LeftRotateAnArrayByDPlaces {
         }
     }
 
+    public static int[] rotateArray(int[] nums,int k,String direction){
+        int n = nums.length;
+        k=k%n;
+        if(n==0 || k==0) {
+            return nums;
+        }
+        if(direction.equals("right")){
+            reverseArray(nums,0,n-1);
+            reverseArray(nums,0,k-1);
+            reverseArray(nums,k,n-1);
+        }else if(direction.equals("left")){
+            reverseArray(nums,0,k-1);
+            reverseArray(nums,k,n-1);
+            reverseArray(nums,0,n-1);
+        }
+        return nums;
+    }
+
     public static void main(String[] args){
         int[] arr ={1,2,3,4,5,6,7};
         int d = 4;
@@ -23,9 +41,7 @@ public class LeftRotateAnArrayByDPlaces {
         d=d%n;
         System.out.print("Array before reversing: ");
         printArray(arr);
-        reverseArray(arr,0,d-1);
-        reverseArray(arr,d,n-1);
-        reverseArray(arr,0,n-1);
+        rotateArray(arr,d,"left");
         System.out.print("Array after reversing: ");
         printArray(arr);
        
