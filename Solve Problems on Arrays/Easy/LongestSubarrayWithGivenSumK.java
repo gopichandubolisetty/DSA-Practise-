@@ -19,6 +19,7 @@ public class LongestSubarrayWithGivenSumK {
                 if(current>maxlen){
                     ind1=p1;
                     ind2=p2;
+                    maxlen=current;
                 }
                 
             }
