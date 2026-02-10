@@ -5,8 +5,8 @@ public class LongestSubArrayWithSumKPostiveAndNegative {
         }
     }
     public static void main(String[] args){
-        int[] arr = {1,2,3};
-        int sum = 100;
+        int[] arr = {1,-2,-3,0,3,2,2,3};
+        int sum = 3;
         int len = arr.length;
         if(len==0){return;}else if(len==1 && sum==arr[0]){
             System.out.println("The sum is at : "+0);
