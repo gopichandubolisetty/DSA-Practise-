@@ -4,8 +4,27 @@ public class SortAnArrayof0s1s2s {
         int len = nums.length;
         int one =0;
         int ze =0;
-        int two=0;
-        
+        int two=len-1;
+        while(one!=len-1){
+            if(nums[one]==0){
+                int temp = nums[one];
+                nums[one] = nums[ze];
+                nums[ze]=temp;
+                ze++;one++;
+            }else if(nums[one]==2){
+                int temp =nums[one];
+                nums[one]=nums[two];
+                nums[two]=temp;
+                two--;
+            }else{
+                one++;
+            }
+    
+        }
+
+        for(int i=0;i<len;i++){
+            System.out.print(nums[i]+" ");
+        }
     }
 }
 
