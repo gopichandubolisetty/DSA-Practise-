@@ -8,7 +8,7 @@ public class MaximumSubArraySum {
         int n = nums.length;
         for(int i=0;i<n;i++){
             if(sum==0){
-                start=i;;
+                start=i;
             }
             sum+=nums[i];
             if(sum>max){
@@ -21,5 +21,9 @@ public class MaximumSubArraySum {
             }
         }
         System.out.println("The maximum subarray sum in the array is : "+max+" ind1: "+ind1+" ind2: "+ind2);
+        System.out.print("The sub array is : ");
+        for(int i=ind1;i<=ind2;i++){
+            System.out.print(nums[i]+" ");
+        }
     }
 }
