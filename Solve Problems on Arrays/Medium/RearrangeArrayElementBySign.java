@@ -8,11 +8,19 @@ public class RearrangeArrayElementBySign {
     public static void main(String[] args){
         int[] nums = {1,2,-4,-5};
         int len = nums.length;
-        int p1=0;
-        while(p1<len){
-            
+        int[] rearr = new int[len];
+        int pos=0;
+        int neg=1;
+        for(int i=0;i<len;i++){
+            if(nums[i]>0){
+                rearr[pos]=nums[i];
+                pos=pos+2;
+            }else{
+                rearr[neg]=nums[i];
+                neg=neg+2;
+            }
         }
-        printArray(nums);
+        printArray(rearr);
     }
 }
 
