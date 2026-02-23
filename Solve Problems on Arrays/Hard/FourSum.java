@@ -5,9 +5,9 @@ public class FourSum {
         int[] nums = {1,0,-1,0,-2,2};
         Arrays.sort(nums);
         int length = nums.length;
-        for(int i=0;i<length-1;i++){
+        for(int i=0;i<length-3;i++){
             if (i > 0 && nums[i] == nums[i - 1]) continue;
-            for(int j=length-1;j>i;j--){
+            for(int j=length-1;j>i+2;j--){
                 if (j < length - 1 && nums[j] == nums[j + 1]) continue;
 
                 int p1=i+1;int p2=j-1;
