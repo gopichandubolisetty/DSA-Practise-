@@ -20,7 +20,7 @@ public class MergeOverlappingIntervals {
         printArray(nums);
         for(int i=0;i<rowlen;i++){
             for(int j=0;j<collen;j++){
-                if()
+                
             }
         }
     }
