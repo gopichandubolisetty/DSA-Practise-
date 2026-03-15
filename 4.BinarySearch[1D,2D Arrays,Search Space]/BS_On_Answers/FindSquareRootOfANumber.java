@@ -12,7 +12,7 @@ public class FindSquareRootOfANumber {
                 break;
             }
 
-            if(sq<=n){
+            if(sq<n){
                 ans=(int)mid;
                low=mid+1;
             }else{
