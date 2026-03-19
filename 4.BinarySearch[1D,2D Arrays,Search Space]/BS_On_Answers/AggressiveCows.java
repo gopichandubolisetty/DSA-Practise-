@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class AggressiveCows {
     
     public static boolean canPlace(int[] stalls, int k, int dist) {
