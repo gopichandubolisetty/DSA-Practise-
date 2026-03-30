@@ -11,7 +11,7 @@ public class AggressiveCows {
             }
             if (countCows >= k) return true;
         }
-        return false;
+        return false; 
     }
 
     public static int solve(int[] stalls, int k) {
