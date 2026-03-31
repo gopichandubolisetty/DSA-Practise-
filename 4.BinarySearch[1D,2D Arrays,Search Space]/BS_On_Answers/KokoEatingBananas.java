@@ -17,8 +17,8 @@ public class KokoEatingBananas {
             long totalHours = 0;
             
             for (int pile : nums) {
-                totalHours += (pile + mid - 1) / mid;
-            }
+                totalHours += (pile + mid - 1) /  mid;
+            } 
 
             if (totalHours <= h) {
                 ans = mid;
