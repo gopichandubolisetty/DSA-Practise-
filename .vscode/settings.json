@@ -1,3 +1,7 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.sourcePaths": [
+        "5.Strings[Basic Medium]/Basic and Easy String Problems",
+        "5.Strings[Basic Medium]/Medium String Problems"
+    ]
 }
