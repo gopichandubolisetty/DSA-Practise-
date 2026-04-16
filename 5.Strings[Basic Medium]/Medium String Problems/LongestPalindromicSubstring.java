@@ -2,42 +2,32 @@ public class LongestPalindromicSubstring {
 
     public String longestPalindrome(String s) {
         if (s == null || s.length() < 1) return "";
-
-        int maxLength = 0;
-        String longestSubstring = "";
-
+        int start = 0, end = 0;
         for (int i = 0; i < s.length(); i++) {
-            for (int j = i; j < s.length(); j++) {
-                String currentSubstring = s.substring(i, j + 1);
-
-                if (isPalindrome(currentSubstring)) {
-                    if (currentSubstring.length() > maxLength) {
-                        maxLength = currentSubstring.length();
-                        longestSubstring = currentSubstring;
-                    }
-                }
+            int len1 = expandAroundCenter(s, i, i);
+            int len2 = expandAroundCenter(s, i, i + 1);
+            int maxLen = Math.max(len1, len2);
+            if (maxLen > end - start) {
+                start = i - (maxLen - 1) / 2;
+                end = i + maxLen / 2;
             }
         }
-
-        return longestSubstring;
+        return s.substring(start, end + 1);
     }
 
-    private boolean isPalindrome(String str) {
-        int left = 0;
-        int right = str.length() - 1;
-
-        while (left < right) {
-            if (str.charAt(left) != str.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
+    private int expandAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
         }
-        return true;
+        return right - left - 1;
     }
 
     public static void main(String[] args) {
         LongestPalindromicSubstring solver = new LongestPalindromicSubstring();
-        System.out.println(solver.longestPalindrome("babad")); // Output: "bab" or "aba"
+        String s1 = "babad";
+        System.out.println("Input: " + s1 + " | Output: " + solver.longestPalindrome(s1));
+        String s2 = "cbbd";
+        System.out.println("Input: " + s2 + " | Output: " + solver.longestPalindrome(s2));
     }
 }
