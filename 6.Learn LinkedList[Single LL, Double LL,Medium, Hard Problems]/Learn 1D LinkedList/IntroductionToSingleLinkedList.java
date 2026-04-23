@@ -2,24 +2,30 @@ class IntroductionToSingleLinkedList {
     int data;
     IntroductionToSingleLinkedList next;
 
-    IntroductionToSingleLinkedList(int d1, IntroductionToSingleLinkedList next1) {
-        this.data = d1;
+    IntroductionToSingleLinkedList(int data1,IntroductionToSingleLinkedList next1){
+        this.data = data1;
         this.next = next1;
     }
-
-    IntroductionToSingleLinkedList(int d1) {
-        this.data = d1;
-        this.next = null;
+    
+    IntroductionToSingleLinkedList(int data1){
+        this.data = data1;
+        this.next=null;
     }
 }
 
-class Main {
-    public static void main(String[] args) {
-        int[] arr = {2, 5, 8, 7};
+class Main{
+    public static void main(String[] args){
+        int[] arr ={1,2,3,4,5,6};
 
-        IntroductionToSingleLinkedList y = new IntroductionToSingleLinkedList(arr[0]);
+        IntroductionToSingleLinkedList n1 = new IntroductionToSingleLinkedList(arr[0]);
 
-        System.out.println(y);
-        System.out.println(y.data);
+        System.out.println(n1.next);
+
+        IntroductionToSingleLinkedList n2 = new IntroductionToSingleLinkedList(arr[1]);
+
+        n1.next = n2;
+
+        System.out.println(n2);
+        System.out.println(n1.next);
     }
 }
