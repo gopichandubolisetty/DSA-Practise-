@@ -1,10 +1,10 @@
-class Node {
+class Node{
     int data;
     Node next;
 
-    Node(int data) {
-        this.data = data;
-        this.next = null;
+    Node(int data1){
+        this.data=data1;
+        this.next=null;
     }
 }
 
@@ -21,9 +21,10 @@ public class DeletionOfTheHeadOfLL {
 
     public static void printList(Node head) {
         Node curr = head;
-        while (curr != null) {
-            System.out.print(curr.data + " -> ");
-            curr = curr.next;
+        while(curr!=null){
+            System.out.print(curr.data);
+            System.out.print('-');
+            curr=curr.next;
         }
         System.out.println("null");
     }
