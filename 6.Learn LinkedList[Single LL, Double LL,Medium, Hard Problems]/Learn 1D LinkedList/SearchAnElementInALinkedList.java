@@ -22,13 +22,18 @@ public class SearchAnElementInALinkedList {
             ind++;
             curr=curr.next;
         }
-        return ind;
+        return -1;
     }
 
     public static void main(String[] args){
         Node head = new Node(10);
         head.next=new Node(20);
         head.next.next = new Node(30);
-        System.out.println(searchIndex(head,20));
+        int ind = searchIndex(head,20);
+        if(ind>-1){
+            System.out.println("At index : "+ind);
+        }else{
+            System.out.println("It is not in the list");
+        }
     }
 }
