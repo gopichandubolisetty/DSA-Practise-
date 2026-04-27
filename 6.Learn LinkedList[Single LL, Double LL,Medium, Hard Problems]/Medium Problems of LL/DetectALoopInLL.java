@@ -12,16 +12,6 @@ class Node{
 
 public class DetectALoopInLL {
 
-    public static void printLL(Node head){
-         Node curr = head;
-         while(curr!=null){
-            System.out.print(curr.data);
-            System.out.print("->");
-            curr = curr.next;
-         }
-         System.out.println("null");
-    }
-
     public static boolean checkloop(Node head){
 
         Node fast =head;
