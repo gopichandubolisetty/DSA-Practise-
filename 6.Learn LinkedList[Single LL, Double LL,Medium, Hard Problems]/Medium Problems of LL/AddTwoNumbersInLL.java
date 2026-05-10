@@ -9,34 +9,8 @@ class Node {
 }
 
 public class AddTwoNumbersInLL {
-    public static Node addTwoNumbers(Node l1, Node l2) {
-        Node dummy = new Node(0);
-        Node temp = dummy;
-        int carry = 0;
 
-        while (l1 != null || l2 != null || carry != 0) {
-            int sum = carry;
-
-            if (l1 != null) {
-                sum += l1.data;
-                l1 = l1.next;
-            }
-
-            if (l2 != null) {
-                sum += l2.data;
-                l2 = l2.next;
-            }
-
-            carry = sum / 10;
-            temp.next = new Node(sum % 10);
-            temp = temp.next;
-        }
-
-        return dummy.next;
-    }
-
-    static Node createList(int[] arr) {
-        if (arr == null || arr.length == 0) return null;
+    public static Node createList(int[] arr) {
         Node head = new Node(arr[0]);
         Node temp = head;
         for (int i = 1; i < arr.length; i++) {
@@ -46,7 +20,7 @@ public class AddTwoNumbersInLL {
         return head;
     }
 
-    static void printList(Node head) {
+    public static void printList(Node head) {
         while (head != null) {
             System.out.print(head.data);
             if (head.next != null) System.out.print(" -> ");
@@ -55,15 +29,32 @@ public class AddTwoNumbersInLL {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        int[] num1 = {2, 4, 3};
-        int[] num2 = {5, 6, 4};
+    public static Node AddLL(Node L1,Node L2){
+        Node ans = new Node(0);
+        Node current= ans;
+        int carry =0 ;
+        while(L1!=null || L2!=null || carry!=0 ){
+            int val1 = (L1!=null) ? L1.data : 0;
+            int val2 = (L2!=null) ? L2.data :0;
+            int sum = val1+val2+carry;
+            carry = sum/10;
+            current.next = new Node(sum%10);
+            current = current.next;
 
-        Node l1 = createList(num1);
-        Node l2 = createList(num2);
+            if(L1!=null)L1 = L1.next;
+            if(L2!=null) L2 = L2.next;
 
-        Node result = AddTwoNumbersInLL.addTwoNumbers(l1, l2);
+        }
+        return ans.next;
+    }
 
-        printList(result);
+    public static void main(String[] args){
+        int[] n1 = {2,3,4,5,6,7};
+        int[] n2 = {3,4,1,4,2,5};
+        Node L1 = createList(n1);
+        Node L2 = createList(n2);
+
+        Node ans = AddLL(L1,L2);
+        printList(ans);
     }
 }
