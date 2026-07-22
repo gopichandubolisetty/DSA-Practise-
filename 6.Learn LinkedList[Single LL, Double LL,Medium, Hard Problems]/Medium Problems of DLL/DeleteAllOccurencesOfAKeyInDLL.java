@@ -27,35 +27,10 @@ public class DeleteAllOccurencesOfAKeyInDLL {
         System.out.println("null");
     }
 
-    public static Node insertAtEnd(Node head,int val){
-        Node newNode = new Node(val);
-        if(head==null){
-            return newNode;
-        }
 
-        Node temp = head;
-        while(temp.next!=null){
-            temp=temp.next;
-        }
-        temp.next = newNode;
-        newNode.prev = temp;
-        return head;
-    }
 
-    public static Node deleteOccurenece(Node head,int tar){
-        if(head==null){
-            return head;
-        }
-        Node temp = head;
-        while(temp.next!=null){
-            if(temp.data==tar){
-                Node temp1 = temp.prev;
-                temp1.next= temp.next;
-                
-            }
-        }
-        return head;
-    }
+   
+
     
     public static void main(String[] args){
         Node head = null;
