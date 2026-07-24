@@ -27,18 +27,61 @@ public class DeleteAllOccurencesOfAKeyInDLL {
         System.out.println("null");
     }
 
+    public static Node insertAtEnd(Node head,int val){
 
+        Node newNode = new Node(val);
 
-   
+        if(head==null){
+            return newNode;
+        }
 
-    
+        Node curr = head;
+
+        while(curr.next!=null){
+            curr  = curr .next;
+        }
+        curr.next = newNode;
+        newNode.prev=curr;
+        return head ; 
+    }
+
+    public static Node deleteAllOccurences(Node head,int tar){
+
+        while(head!=null && head.data==tar){
+            head = head.next;
+        }
+
+        
+
+        if(head==null){
+            return head;
+        }
+
+        head.prev = null;
+
+        Node curr = head;
+        while(curr!=null){
+            if(curr.data==tar){
+                curr.prev.next = curr.next;
+                if(curr.next!=null){
+                    curr.next.prev=curr.prev;
+                }
+            }
+            curr = curr.next;
+        }
+        return head;
+    }
     public static void main(String[] args){
         Node head = null;
         head = insertAtEnd(head, 10);
-        head = insertAtEnd(head, 20);
-        head = insertAtEnd(head, 30);
         head = insertAtEnd(head, 10);
-        head = insertAtEnd(head, 40);
+        head = insertAtEnd(head, 10);
+        head = insertAtEnd(head, 10);
+        head = insertAtEnd(head, 10);
+        printLL(head);
         int target  = 10;
+        head = deleteAllOccurences(head,target);
+        printLL(head);
+
     }
 }
