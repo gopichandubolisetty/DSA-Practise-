@@ -1,24 +1,27 @@
+import java.util.Arrays;
+import java.util.List;
+
 class ArrayStack {
-    private int[] stackArray;
+    private int[] arrayStack;
+    private int topindex;
     private int capacity;
-    private int topIndex;
+
+    public ArrayStack(int n) {
+        this.capacity = n;
+        this.arrayStack = new int[n];
+        this.topindex = -1;
+    }
 
     public ArrayStack() {
         this(1000);
     }
 
-    public ArrayStack(int size) {
-        this.capacity = size;
-        this.stackArray = new int[capacity];
-        this.topIndex = -1;
-    }
-
     public void push(int x) {
-        if (topIndex >= capacity - 1) {
+        if (topindex >= capacity - 1) {
             System.out.println("Stack overflow");
             return;
         }
-        stackArray[++topIndex] = x;
+        arrayStack[++topindex] = x;
     }
 
     public int pop() {
@@ -26,7 +29,7 @@ class ArrayStack {
             System.out.println("Stack is empty");
             return -1;
         }
-        return stackArray[topIndex--];
+        return arrayStack[topindex--];
     }
 
     public int top() {
@@ -34,24 +37,31 @@ class ArrayStack {
             System.out.println("Stack is empty");
             return -1;
         }
-        return stackArray[topIndex];
+        return arrayStack[topindex];
     }
 
     public boolean isEmpty() {
-        return topIndex == -1;
+        return topindex == -1;
     }
 }
 
 public class Implementat_Stack_Using_Arrays {
     public static void main(String[] args) {
         ArrayStack stack = new ArrayStack();
-        String[] commands = {"ArrayStack", "push", "push", "top", "pop", "isEmpty"};
-        int[][] inputs = {{}, {5}, {10}, {}, {}, {}};
+        List<String> commands = Arrays.asList("ArrayStack", "push", "push", "top", "pop", "isEmpty");
+        List<List<Integer>> inputs = Arrays.asList(
+            Arrays.asList(), 
+            Arrays.asList(5), 
+            Arrays.asList(10), 
+            Arrays.asList(), 
+            Arrays.asList(), 
+            Arrays.asList()
+        );
 
-        for (int i = 0; i < commands.length; ++i) {
-            switch (commands[i]) {
+        for (int i = 0; i < commands.size(); i++) {
+            switch (commands.get(i)) {
                 case "push":
-                    stack.push(inputs[i][0]);
+                    stack.push(inputs.get(i).get(0));
                     System.out.print("null ");
                     break;
                 case "pop":
