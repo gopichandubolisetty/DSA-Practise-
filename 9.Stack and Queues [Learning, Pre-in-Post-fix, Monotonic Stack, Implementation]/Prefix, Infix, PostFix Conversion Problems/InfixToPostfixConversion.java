@@ -26,7 +26,7 @@ class Solution{
                     ans.append(st.pop());
                 }
                 st.pop();
-            }else{  // I used another if else if(prec(Ch)>prec(st.peek())){st.push()}
+            }else{  // I used another if else if(prec(Ch)>prec(st.peek())){st.push()} then first check whether the stack is empty or then and then you do the operation
                 while(!st.isEmpty() && prec(ch)<prec(st.peek())){
                     ans.append(st.pop());
                 }
@@ -43,7 +43,7 @@ class Solution{
 
 
 
-public class InfixToPostfix {
+public class InfixToPostfixConversion {
     public static void main(String[] args){
         String exp = "(p+q)*(m-n)";  
         System.out.println("Infix expression: " + exp);
