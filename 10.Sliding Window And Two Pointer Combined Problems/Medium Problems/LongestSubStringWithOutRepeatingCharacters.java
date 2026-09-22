@@ -34,3 +34,27 @@ public class LongestSubStringWithOutRepeatingCharacters {
         System.out.println(lengthOfLongestSubstring(input3));
     }
 }
+
+
+
+
+
+
+
+
+
+//  int ans =0;
+//         int left =0;
+//         boolean ar = new boolean[26];
+
+//         for(int right = 0;right<s.length();right++){
+//             if(ar[s.charAt(right)-'a']){
+//                 while(left<right && ar[s.charAt(right)-'a']){
+//                     ar[s.charAt(left)-'a'] = false;
+//                     left++;
+//                 }
+//             }
+//             ar[s.charAt(right)-'a'] = true;
+//             ans = Math.max(ans,right-left+1);
+//         }
+//         return ans;
