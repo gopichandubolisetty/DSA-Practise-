@@ -1,41 +1,34 @@
 import java.util.HashMap;
 import java.util.Map;
-
 public class LongestSubstringWithAtMostKDistinceCharacters {
     public int longestSubstringAtMostKDistinct(String s, int k) {
         int n = s.length();
+        int ans = 0;
 
-        if (n == 0 || k <= 0) {
-            return 0;
-        }
+        Map<Character,Integer> fre = new HashMap<>();
+        int left=0;
 
-        Map<Character, Integer> frequency = new HashMap<>();
-        int left = 0;
-        int maxLength = 0;
+        for(int right=0;right<n;right++){
+            char c = s.charAt(right);
 
-        for (int right = 0; right < n; right++) {
-            char current = s.charAt(right);
-            frequency.put(current, frequency.getOrDefault(current, 0) + 1);
+            fre.put(c,fre.getOrDefault(c,0)+1);
 
-            while (frequency.size() > k) {
-                char leftChar = s.charAt(left);
-                frequency.put(leftChar, frequency.get(leftChar) - 1);
-
-                if (frequency.get(leftChar) == 0) {
-                    frequency.remove(leftChar);
-                }
-
+            while(fre.size()>k){
+                char ch = s.charAt(left);
+                fre.put(ch,fre.get(ch)-1);
                 left++;
+                if(fre.get(ch)==0){
+                    fre.remove(ch);
+                }
             }
 
-            maxLength = Math.max(maxLength, right - left + 1);
+            ans = Math.max(ans,right-left+1);
         }
-
-        return maxLength;
+        return ans;
     }
 
     public static void main(String[] args) {
-        String s = "eceba";
+        String s = "ecebbbbbldffgjoipfjlsajfdljsdlfjfjjflkdsjfljasdlfjjfjfjfjfjfjfjfjfjfjfjfjfba";
         int k = 2;
 
         LongestSubstringWithAtMostKDistinceCharacters solution = new LongestSubstringWithAtMostKDistinceCharacters();
