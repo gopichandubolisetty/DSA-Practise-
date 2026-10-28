@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class HuffmanCodes {
     public static String decodeHuffman(int n, String[] c,String[] d,String e){
@@ -22,13 +22,15 @@ public class HuffmanCodes {
         String[] c = new String[n];
         String[] d = new String[n];
         for(int i=0;i<n;i++){
-            c[i]=sc.next():
+            c[i]=sc.next();
         }
         for(int i=0;i<n;i++){
             d[i]=sc.next();
         }
+        sc.nextLine();
         String en = sc.nextLine().trim();
         String ans = decodeHuffman(n,c,d,en);
         System.out.println(ans);
+        
     }
 }
